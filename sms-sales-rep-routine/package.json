@@ -1,0 +1,13 @@
+{
+  "name": "sms-sales-rep-routine",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nightly routine that associates SMS communications with sales reps in HubSpot.",
+  "main": "nightly_sms_sales_rep_association_routine.js",
+  "scripts": {
+    "start": "node nightly_sms_sales_rep_association_routine.js"
+  },
+  "dependencies": {
+    "@hubspot/api-client": "^14.0.1"
+  }
+}
