@@ -25,6 +25,9 @@
  *   npm install @hubspot/api-client
  *   export PRIVATE_APP_TOKEN=your-token-here
  *   Schedule to run once daily, e.g. 2:00 AM Central.
+ *   Optionally override the window with LOOKBACK_HOURS=<n> for a
+ *   one-off backfill (e.g. LOOKBACK_HOURS=72 npm start). Safe to
+ *   widen since the run is idempotent.
  *
  * OUTPUT
  *   Logs a JSON summary to stdout. If you want this written to
@@ -35,7 +38,7 @@
 
 const hubspot = require('@hubspot/api-client');
 
-const LOOKBACK_HOURS = 26;
+const LOOKBACK_HOURS = process.env.LOOKBACK_HOURS ? Number(process.env.LOOKBACK_HOURS) : 26;
 const SALES_REP_OBJECT = 'p24430029_sales_reps';
 const COMMUNICATIONS_TO_SALES_REP_ASSOC_TYPE_ID = 263;
 const SEARCH_PAGE_SIZE = 100;
